@@ -22,11 +22,11 @@ if (!$zoneId) {
     exitWithMessage('nohost');
 }
 
-$zoneName = fetchZoneName($zoneId, $headers);
 $wildName = "*." . $zoneName;
 
 $recordInfo = fetchDnsRecordInfo($zoneId, $wildName, $headers);
 $tagDescription = buildTagDescription();
+
 
 if ($recordInfo) {
     $updateStatus = updateDnsRecord($zoneId, $recordInfo['id'], $wildName, $ip, $recordInfo['ttl'], $recordInfo['proxied'], $headers, $tagDescription);
@@ -114,14 +114,8 @@ function fetchZoneId(string $hostname, array $headers): ?string {
     return null;
 }
 
-function fetchZoneName(string $zoneId, array $headers): string {
-    $url = "https://api.cloudflare.com/client/v4/zones/$zoneId";
-    $response = executeCurlRequest($url, $headers);
-    return $response['result']['name'] ?? '';
-}
-
 function fetchDnsRecordInfo(string $zoneId, string $hostname, array $headers): ?array {
-    $url = "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?type=A&name=$hostname");
+    $url = "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?type=A&name=$hostname";
     $response = executeCurlRequest($url, $headers);
     return $response['result'][0] ?? null;
 }
