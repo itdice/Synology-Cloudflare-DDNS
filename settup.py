@@ -10,7 +10,7 @@ wildcard_file = "usr/syno/bin/ddns/cloudflare-wildcard.php"
 
 DDNS_name = "Cloudflare"
 DDNS_wildcard_name = "Cloudflare-wildcard"
-config_file = "etc.defaults/ddns_provider.conf"
+config_file = "/etc.defaults/ddns_provider.conf"
 
 config = configparser.ConfigParser()
 config.read(config_file)
