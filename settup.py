@@ -12,7 +12,7 @@ DDNS_name = "Cloudflare"
 DDNS_wildcard_name = "Cloudflare-wildcard"
 config_file = "etc.deafaults/ddns_provider.conf"
 
-config - configparser.ConfigParser()
+config = configparser.ConfigParser()
 config.read(config_file)
 
 # Main DDNS
