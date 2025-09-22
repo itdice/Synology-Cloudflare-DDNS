@@ -6,7 +6,7 @@ import stat
 main_url = "https://raw.githubusercontent.com/itdice/Synology-Cloudflare-DDNS/main/cloudflare.php"
 main_file = "/usr/syno/bin/ddns/cloudflare.php"
 wildcard_url = "https://raw.githubusercontent.com/itdice/Synology-Cloudflare-DDNS/main/cloudflare-wildcard.php"
-wildcard_file = "usr/syno/bin/ddns/cloudflare-wildcard.php"
+wildcard_file = "/usr/syno/bin/ddns/cloudflare-wildcard.php"
 
 DDNS_name = "Cloudflare"
 DDNS_wildcard_name = "Cloudflare-wildcard"
