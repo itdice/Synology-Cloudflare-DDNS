@@ -25,7 +25,7 @@ if (!$zoneId) {
 $zoneName = fetchZoneName($zoneId, $headers);
 $wildName = "*." . $zoneName;
 
-$recordInfo = fetchDnsRecordInfo($zoneId, $hostname, $headers);
+$recordInfo = fetchDnsRecordInfo($zoneId, $wildName, $headers);
 $tagDescription = buildTagDescription();
 
 if ($recordInfo) {
@@ -121,7 +121,7 @@ function fetchZoneName(string $zoneId, array $headers): string {
 }
 
 function fetchDnsRecordInfo(string $zoneId, string $hostname, array $headers): ?array {
-    $url = "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?type=A&name=". urlencode($recordName);
+    $url = "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?type=A&name=$hostname");
     $response = executeCurlRequest($url, $headers);
     return $response['result'][0] ?? null;
 }
