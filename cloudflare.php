@@ -59,7 +59,7 @@ function buildAuthHeaders(string $account, string $pwd): ?array {
 
 function buildTagDescription(): string {
     date_default_timezone_set('UTC'); // Set default timezone to UTC or change as needed
-    return "Set by github.com/navystack via SynologyDDNSProject on " . date("Y-m-d H:i:s");
+    return "Set by IT DICE Server via Synology Cloudflare DDNS on " . date("Y-m-d H:i:s");
 }
 
 function executeCurlRequest(string $url, array $headers, string $method = 'GET', ?array $data = null): ?array {
