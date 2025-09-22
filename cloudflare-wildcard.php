@@ -22,7 +22,7 @@ if (!$zoneId) {
     exitWithMessage('nohost');
 }
 
-$wildName = "*." . $zoneName;
+$wildName = "*." . $hostname;
 
 $recordInfo = fetchDnsRecordInfo($zoneId, $wildName, $headers);
 $tagDescription = buildTagDescription();
